@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<extension key="eu.wemove.nobillingfields" type="module">
+  <file>nobillingfields</file>
+  <name>No Billing Fields</name>
+  <description>Removes the billing details fields (keeping only first name and last name) from the form of credit card payments</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Romain Thouvenin</author>
+    <email>romain@wemove.eu</email>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page">https://github.com/WeMoveEU/nobillingfields</url>
+    <url desc="Documentation">https://github.com/WeMoveEU/nobillingfields</url>
+    <url desc="Support">https://github.com/WeMoveEU/nobillingfields</url>
+    <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+  </urls>
+  <releaseDate>2016-07-19</releaseDate>
+  <version>1.0</version>
+  <develStage>stable</develStage>
+  <compatibility>
+    <ver>4.6</ver>
+  </compatibility>
+  <comments>Removes the billing details fields (keeping only first name and last name) from the form of credit card payments</comments>
+  <civix>
+    <namespace>CRM/Nobillingfields</namespace>
+  </civix>
+</extension>
