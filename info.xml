@@ -2,7 +2,7 @@
 <extension key="eu.wemove.nobillingfields" type="module">
   <file>nobillingfields</file>
   <name>No Billing Fields</name>
-  <description>Removes the billing details fields (keeping only first name and last name) from the form of credit card payments</description>
+  <description>Removes the billing details fields (keeping only name and zip code) from the form of credit card payments</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>Romain Thouvenin</author>
@@ -20,7 +20,7 @@
   <compatibility>
     <ver>4.6</ver>
   </compatibility>
-  <comments>Removes the billing details fields (keeping only first name and last name) from the form of credit card payments</comments>
+  <comments>Removes the billing details fields (keeping only name and zip code) from the form of credit card payments</comments>
   <civix>
     <namespace>CRM/Nobillingfields</namespace>
   </civix>

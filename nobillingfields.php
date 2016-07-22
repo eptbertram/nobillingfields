@@ -133,15 +133,19 @@ function nobillingfields_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) 
  */
 function nobillingfields_civicrm_buildForm($formName, &$form) {
   if ($formName == 'CRM_Contribute_Form_Contribution_Main')  {
-    $displayedFields = array('billing_first_name', 'billing_last_name');
+    $bltID = $form->get('bltID');
+
+    $displayedFields = array(
+      "billing_first_name", 
+      "billing_last_name",
+      "billing_postal_code-{$bltID}"
+    );
     $form->assign('billingDetailsFields', $displayedFields);
 
-    $bltID = $form->get('bltID');
     $suppressedFields = array(
       "billing_street_address-{$bltID}", 
       "billing_city-{$bltID}",
       "billing_state_province_id-{$bltID}",
-      "billing_postal_code-{$bltID}",
       "billing_country_id-{$bltID}"
     );
     foreach ($suppressedFields as $fieldId) {
