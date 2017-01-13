@@ -132,7 +132,8 @@ function nobillingfields_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) 
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_buildForm
  */
 function nobillingfields_civicrm_buildForm($formName, &$form) {
-  if ($formName == 'CRM_Contribute_Form_Contribution_Main')  {
+  if ($formName == 'CRM_Contribute_Form_Contribution_Main'
+      || $formName == 'CRM_Financial_Form_Payment') {
     $bltID = $form->get('bltID');
 
     $displayedFields = array(
