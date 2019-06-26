@@ -137,20 +137,43 @@ function nobillingfields_civicrm_buildForm($formName, &$form) {
     $bltID = $form->get('bltID');
 
     $displayedFields = array(
-      "billing_first_name", 
+      "billing_first_name",
       "billing_last_name",
-      "billing_postal_code-{$bltID}"
+      "billing_postal_code-{$bltID}",
     );
     $form->assign('billingDetailsFields', $displayedFields);
 
     $suppressedFields = array(
-      "billing_street_address-{$bltID}", 
+      "billing_street_address-{$bltID}",
       "billing_city-{$bltID}",
       "billing_state_province_id-{$bltID}",
-      "billing_country_id-{$bltID}"
+      "billing_country_id-{$bltID}",
     );
     foreach ($suppressedFields as $fieldId) {
       $form->_paymentFields[$fieldId]['is_required'] = FALSE;
+    }
+  }
+}
+
+/**
+ * @param $formName
+ * @param $fields
+ * @param $files
+ * @param $form
+ * @param $errors
+ */
+function nobillingfields_civicrm_validateForm($formName, &$fields, &$files, &$form, &$errors) {
+  if ($formName == 'CRM_Contribute_Form_Contribution_Main'
+    || $formName == 'CRM_Financial_Form_Payment') {
+    $bltID = $form->get('bltID');
+    $suppressedFields = [
+      "billing_street_address-{$bltID}",
+      "billing_city-{$bltID}",
+      "billing_state_province_id-{$bltID}",
+      "billing_country_id-{$bltID}",
+    ];
+    foreach ($suppressedFields as $fieldId) {
+      unset($form->_errors[$fieldId]);
     }
   }
 }
