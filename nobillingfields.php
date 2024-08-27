@@ -135,6 +135,10 @@ function nobillingfields_civicrm_buildForm($formName, &$form) {
     );
     $form->assign('billingDetailsFields', $displayedFields);
 
+    foreach ($displayedFields as $fieldId) {
+      $form->_paymentFields[$fieldId]['is_required'] = FALSE;
+    };
+
     $suppressedFields = array(
       "billing_state_province_id-{$bltID}",
     );
