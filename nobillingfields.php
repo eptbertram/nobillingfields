@@ -128,15 +128,15 @@ function nobillingfields_civicrm_buildForm($formName, &$form) {
     $displayedFields = array(
       "billing_first_name",
       "billing_last_name",
-      "billing_postal_code-{$bltID}",
+      "billing_street_address",
+      "billing_postal_code",      
+      "billing_city",
+      "billing_country_id",
     );
     $form->assign('billingDetailsFields', $displayedFields);
 
     $suppressedFields = array(
-      "billing_street_address-{$bltID}",
-      "billing_city-{$bltID}",
       "billing_state_province_id-{$bltID}",
-      "billing_country_id-{$bltID}",
     );
     foreach ($suppressedFields as $fieldId) {
       $form->_paymentFields[$fieldId]['is_required'] = FALSE;
@@ -157,10 +157,7 @@ function nobillingfields_civicrm_validateForm($formName, &$fields, &$files, &$fo
     || $formName == 'CRM_Financial_Form_Payment') {
     $bltID = $form->get('bltID');
     $suppressedFields = [
-      "billing_street_address-{$bltID}",
-      "billing_city-{$bltID}",
       "billing_state_province_id-{$bltID}",
-      "billing_country_id-{$bltID}",
     ];
     foreach ($suppressedFields as $fieldId) {
       unset($form->_errors[$fieldId]);
